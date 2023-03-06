@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interval </title>
+    <style>
+        section {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .h1_heading {
+            font-size: 3.5rem;
+            color: rgb(134, 0, 218);
+        }
+
+        .btn_section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        button {
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            border: 0;
+            /* background-color: red; */
+            color: white;
+        }
+
+        .btn-three {
+            background-color: green;
+        }
+
+        .btn-two {
+            background-color: blue;
+        }
+
+        .btn-one {
+            background-color: red;
+        }
+
+        .btn-three:hover {
+            background-color: rgb(2, 95, 2);
+        }
+
+        .btn-two:hover {
+            background-color: rgb(5, 5, 192);
+        }
+
+        .btn-one:hover {
+            background-color: rgb(199, 3, 3);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- watch counter -->
+    <section>
+        <div>
+            <h1 class="h1_heading" id="h1_id">0</h1>
+
+        </div>
+        <div class="btn_section">
+            <button class="btn-three" onclick="start()">Start</button>
+            <button class="btn-one" onclick="stop()">Stop</button>
+            <button class="btn-two" onclick="reset()">Reset</button>
+
+        </div>
+    </section>
+
+
+    <!-- js file -->
+
+    <script>
+        let intervalId;
+        const showTime = document.getElementById("h1_id");
+        let timeValue = showTime.innerText;
+        let timer = false;
+
+        // start
+        const start = () => {
+            if (timer) {
+                timeValue = 0;
+                intervalId = setInterval(() => {
+                    showTime.innerText = (++timeValue);
+                }, 1000);
+            }
+            else {
+                intervalId = setInterval(() => {
+                    showTime.innerText = (++timeValue);
+                }, 1000);
+            }
+
+        };
+        // stop
+        const stop = () => {
+            clearInterval(intervalId);
+            timer = false;
+        }
+
+        // reset
+        const reset = () => {
+            clearInterval(intervalId);
+            showTime.innerText = 0;
+            timer = true;
+        }
+    </script>
+
+</body>
+
+</html>
